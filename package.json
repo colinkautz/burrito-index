@@ -10,5 +10,10 @@
   },
   "keywords": ["tacobell", "piratesoftware", "burrito"],
   "author": "Colin K.",
-  "license": "GPL-3.0-only"
+  "license": "GPL-3.0-only",
+  "dependencies": {
+    "@inquirer/prompts": "^5.0.4",
+    "node-fetch": "^3.3.2",
+    "zipcodes": "^8.0.0"
+  }
 }
