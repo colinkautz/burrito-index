@@ -7,16 +7,21 @@ export const fetchListOfStores = async (lat, long) => {
     const data = await res.json();
 
     let formattedList = [];
-    const storeData = data.nearByStores.length > 10 ? data.nearByStores.slice(0, 10) : data.nearByStores;
 
-    for (const location of storeData) {
-        formattedList.push({
-            name: `${location.storeNumber} - ${location.address.line1} ${location.address.town}, ${location.address.region.isocode.substring(3)}`,
-            value: location.storeNumber
-        });
+    if(data.nearByStores.length > 0) {
+        const storeData = data.nearByStores.length > 10 ? data.nearByStores.slice(0, 10) : data.nearByStores;
+
+        for (const location of storeData) {
+            formattedList.push({
+                name: `${location.storeNumber} - ${location.address.line1} ${location.address.town}, ${location.address.region.isocode.substring(3)}`,
+                value: location.storeNumber
+            });
+        }
+
+        return formattedList;
+    } else {
+        return formattedList;
     }
-
-    return formattedList;
 }
 
 export const fetchBurrito = async (storeNumber) => {
