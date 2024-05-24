@@ -18,7 +18,7 @@ const init = async () => {
 
         console.log(`The price for a 5-Layer Burrito at this store is: ${burrito}`);
     } else {
-        console.log(`Sadly, there are no Taco Bell locations near you. Try another ZIP code.`)
+        console.log(`Sadly, there are no Taco Bell locations near you. Try another ZIP code.`);
     }
 
 }
