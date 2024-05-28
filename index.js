@@ -20,7 +20,6 @@ const init = async () => {
     } else {
         console.log(`Sadly, there are no Taco Bell locations near you. Try another ZIP code.`);
     }
-
 }
 
 init().catch(err => console.error(err));
