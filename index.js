@@ -1,5 +1,6 @@
 import { input, select } from "@inquirer/prompts";
 import * as zipcodes from "zipcodes";
+
 import {fetchBurrito, fetchListOfStores} from "./fetch-utils.js";
 
 let zip = await input({message: "Enter a Zip Code"});
