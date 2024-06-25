@@ -1,12 +1,16 @@
-import { input, select } from "@inquirer/prompts";
-import * as zipcodes from "zipcodes";
+import {confirm, input, select} from "@inquirer/prompts";
+import * as zipcode from "zipcodes";
 
 import {fetchBurrito, fetchListOfStores} from "./fetch-utils.js";
 
-let zip = await input({message: "Enter a Zip Code"});
-zip = zipcodes.lookup(zip);
+const askToRun = async () => {
+    return confirm({message: `Again?`});
+}
 
 const init = async () => {
+    let zip = await input({message: "Enter a Zip Code"});
+    zip = zipcode.lookup(zip);
+
     const storeList = await fetchListOfStores(zip.latitude, zip.longitude);
 
     if(storeList.length > 0) {
@@ -18,9 +22,16 @@ const init = async () => {
         const burrito = await fetchBurrito(selectedStore);
 
         console.log(`The price for a 5-Layer Burrito at this store is: ${burrito}`);
+
     } else {
         console.log(`Sadly, there are no Taco Bell locations near you. Try another ZIP code.`);
     }
 }
 
-init().catch(err => console.error(err));
+(async () => {
+    let runAgain = true;
+    while(runAgain) {
+        await init();
+        runAgain = await askToRun();
+    }
+})();

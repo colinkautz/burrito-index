@@ -1,6 +1,6 @@
 {
   "name": "burrito-index",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Fetch the price of a Beefy 5-Layer Burrito",
   "private": true,
   "main": "index.js",
@@ -8,7 +8,7 @@
   "scripts": {
     "start": "node index.js"
   },
-  "keywords": ["tacobell", "piratesoftware", "burrito"],
+  "keywords": ["tacobell", "piratesoftware", "burrito", "burritoindex"],
   "author": "Colin K.",
   "license": "GPL-3.0-only",
   "dependencies": {
