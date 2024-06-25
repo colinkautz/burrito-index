@@ -1,6 +1,5 @@
 ## The Burrito Index Program
 
----
 ### Requirements
  - Node (latest flavor of LTS should suffice)
  - pnpm
